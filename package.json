@@ -1,0 +1,47 @@
+{
+  "name": "tripagency",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env index.js",
+    "dev": "nodemon --exec \"node --env-file-if-exists=.env\" index.js",
+    "test": "node --test tests/*.test.js",
+    "test:integration": "node --env-file-if-exists=.env.test --test tests/integration/*.test.js",
+    "db:migrate": "node --env-file-if-exists=.env.migrations node_modules/sequelize-cli/lib/sequelize db:migrate --config config/cli.js",
+    "admin:create": "node --env-file-if-exists=.env scripts/create-admin.js",
+    "db:setup:local": "node scripts/setup-local.js",
+    "check": "node scripts/check.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "sequelize-cli": "^6.6.2"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-session-sequelize": "^8.0.6",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0",
+    "multer": "^2.5.0",
+    "sequelize": "^6.37.3",
+    "sharp": "^0.35.5",
+    "swagger-ui-express": "^5.0.1",
+    "tedious": "^20.3.8",
+    "zod": "^4.6.7"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "overrides": {
+    "sequelize": {
+      "uuid": "^11.1.1"
+    },
+    "@azure/msal-node": "^7.1.2"
+  }
+}
